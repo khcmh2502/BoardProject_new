@@ -1,0 +1,56 @@
+.profile-image-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#profileImg {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+#deleteImage {
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  transform: translate(100%, -50%); /* 가운데 정렬 */
+  font-weight: bold;
+  font-size: 25px;
+  color: #f44336;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.profile-btn-area {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-btn-area label {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.profile-btn-area input {
+  display: none;
+}
+
+.profile-btn-area button {
+  background-color: #008cba;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}

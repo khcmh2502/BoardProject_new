@@ -1,0 +1,133 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 96%);
+}
+
+.login-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 350px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-box button[type="submit"] {
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-box button[type="submit"]:hover {
+  background-color: #125a9c;
+}
+
+.login-box label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.signup-find-area {
+  margin-top: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.signup-find-area a {
+  color: #1976d2;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.signup-find-area a:hover {
+  text-decoration: underline;
+}
+
+/* 로그인 후 */
+.login-area {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  max-width: 500px;
+  margin: 30px auto;
+}
+
+.login-area img#memberProfile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1976d2;
+}
+
+.my-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.my-info div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nickname {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1976d2;
+  text-decoration: none;
+}
+
+#nickname:hover {
+  text-decoration: underline;
+}
+
+#logoutBtn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#logoutBtn:hover {
+  background-color: #b71c1c;
+}
+
+.my-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
