@@ -52,10 +52,41 @@ public class MemberServiceImpl implements MemberService {
 
 		return loginMember;
 	}
-	
+
 	// 로그인 회원 정보 조회
 	@Override
 	public Member findByEmailAndId(Member inputMember) {
 		return mapper.findByEmailAndId(inputMember);
 	}
+
+	// 이메일 중복 검사 서비스
+	@Override
+	public int checkEmail(String memberEmail) {
+		return mapper.checkEmail(memberEmail);
+	}
+	
+	// 닉네임 중복 검사 서비스
+	@Override
+	public int checkNickname(String memberNickname) {
+		return mapper.checkNickname(memberNickname);
+	}
+	
+	// 회원가입 서비스
+	@Override
+	public int signup(Member member) {
+		
+		// 주소가 입력되지 않은 경우
+		if(member.getMemberAddress().equals("")) { 
+			member.setMemberAddress(null); // null 저장
+		}
+		
+		// inputMember 안의 memberPw -> 평문
+		// 비밀번호를 암호화하여 inputMember에 세팅
+		String encPw = bcrypt.encode(member.getMemberPw());
+		member.setMemberPw(encPw);
+
+		// 회원 가입 매퍼 메서드 호출
+		return mapper.signup(member);
+	}
+
 }

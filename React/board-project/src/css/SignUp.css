@@ -1,0 +1,96 @@
+.confirm {
+  border: 2px solid green !important;
+}
+
+/* 전체 컨테이너 정렬 */
+.signUp-content {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.disable-btn {
+  background-color: #ddd !important;
+  cursor: auto !important;
+}
+
+
+/* form 안의 input 포커스 시 테두리 없앰 */
+.signUp-content input:focus{
+  outline: none;
+}
+
+/* 라벨 스타일 */
+.signUp-content label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* 필수 표시 */
+.signUp-content .required {
+  color: red;
+  margin-right: 5px;
+}
+
+/* 입력 영역 박스 */
+.signUp-input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* input 스타일 */
+.signUp-input-area input[type="text"],
+.signUp-input-area input[type="password"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 인증 버튼 등 */
+.signUp-input-area button {
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.signUp-input-area button:hover {
+  background-color: #45a049;
+}
+
+/* 메시지 출력 */
+.signUp-message {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* 가입하기 버튼 */
+#signUpBtn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#signUpBtn:hover {
+  background-color: #0056b3;
+}

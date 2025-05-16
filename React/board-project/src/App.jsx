@@ -1,7 +1,7 @@
 import Layout from './component/common/Layout';
 import Home from './component/common/Home';
 import { Route, Routes } from 'react-router-dom';
-import { SignUp } from './component/member/SignUp';
+import SignUp from './component/member/SignUp';
 import MyPageInfo from './component/myPage/MyPageInfo';
 import ProtectedRoute from './component/common/ProtectedRoute';
 import MyPageProfile from './component/myPage/MyPageProfile';
@@ -15,7 +15,7 @@ function App() {
         <Route index element={<Home />} />
 
         {/* 회원가입 페이지 */}
-        <Route path="signup" element={<SignUp />} />
+        <Route path="/member/signup" element={<SignUp />} />
 
         {/* myPage 라우터가드 그룹화 */}
         <Route path="myPage">

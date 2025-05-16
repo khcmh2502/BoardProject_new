@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,5 +52,56 @@ public class MemberController {
 		}
 
 	}
+	
+	/** 이메일 중복검사
+	 * @param map
+	 * @return
+	 */
+	@PostMapping("checkEmail")   // Post요청 /member/checkEmail 
+	public ResponseEntity<?> checkEmail(@RequestBody Map<String, String> map) {
+		
+		String memberEmail = map.get("email");
+		int result = service.checkEmail(memberEmail);
+		
+		// 중복된 이메일							// 중복이면 false , 중복 아니면 true로 넘김
+		return ResponseEntity.ok(Map.of("isDuplicate",  result > 0 ? false : true, 
+				"message", result > 0 ? "이미 사용 중인 이메일입니다." : "사용 가능한 이메일입니다."));
+	 
+	}
+	
+	/** 닉네임 중복검사
+	 * @param map
+	 * @return
+	 */
+	@PostMapping("checkNickname")   // Post요청 /member/checkNickname 
+	public ResponseEntity<?> checkNickname(@RequestBody Map<String, String> map) {
+		
+		String memberNickname = map.get("nickname");
+		int result = service.checkNickname(memberNickname);
+		
+		// 중복된 이메일							// 중복이면 false , 중복 아니면 true로 넘김
+		return ResponseEntity.ok(Map.of("isDuplicate",  result > 0 ? false : true, 
+				"message", result > 0 ? "이미 사용 중인 닉네임입니다." : "사용 가능한 닉네임입니다."));
+		
+	}
+	
+	/** 회원가입 처리
+	 * @param inputMember
+	 * @param memberAddress
+	 * @param ra
+	 * @return
+	 */
+	@PostMapping("signup")   // Post요청 /member/signup 
+	public ResponseEntity<?> signup(@RequestBody Member member) {
+		
+		// 회원가입 서비스 호출
+		int result = service.signup(member);
+		
+		if(result > 0) return ResponseEntity.ok(200);
+		else return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("회원 가입 중 서버 에러");
+	}
+	
+	
+	
 
 }
