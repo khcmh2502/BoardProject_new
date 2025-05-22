@@ -8,14 +8,16 @@
 .login-box {
   background: white;
   padding: 40px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   width: 350px;
 }
 
 .login-box form {
   display: flex;
   flex-direction: column;
+}
+
+.login-box input:focus {
+  outline: none;
 }
 
 .login-box input[type="email"],
@@ -76,7 +78,6 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   gap: 20px;
   max-width: 500px;
-  margin: 30px auto;
 }
 
 .login-area img#memberProfile {

@@ -1,5 +1,7 @@
 package edu.kh.project.member.model.service;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import edu.kh.project.member.model.dto.Member;
 
 public interface MemberService{

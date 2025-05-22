@@ -44,6 +44,11 @@ public class JwtInterceptor implements HandlerInterceptor {
         String token = request.getHeader("Authorization");
         
         log.debug("token {}", token);
+        // token이 null인지 검사
+        if (token == null || token.isBlank()) {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "토큰이 필요합니다"); // 401 에러 발생
+            return false;
+        }
 
         // 2. 토큰 부분만 추출하기
         if (token != null && token.startsWith("Bearer ")) {

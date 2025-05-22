@@ -53,6 +53,8 @@ public class MemberController {
 
 	}
 	
+	
+	
 	/** 이메일 중복검사
 	 * @param map
 	 * @return

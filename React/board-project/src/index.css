@@ -5,8 +5,8 @@
   font-style: normal;
 }
 
-:root{
-  --main-color : #455ba8;
+:root {
+  --main-color: #455ba8;
 }
 
 /* 기본 설정 */
@@ -80,33 +80,40 @@ nav {
   background-color: white;
   border-bottom: 1px solid #ccc;
 
-  position : sticky; /* 화면 밖으로 벗어났을 때 지정된 위치 붙음 */
-  top : 0;           /* 붙을 위치(고정될 위치) 지정 */
-  z-index: 1000;  
+  position: sticky;
+  /* 화면 밖으로 벗어났을 때 지정된 위치 붙음 */
+  top: 0;
+  /* 붙을 위치(고정될 위치) 지정 */
+  z-index: 1000;
 }
 
-nav > ul {
+nav>ul {
   display: flex;
-  list-style: none; /* li 태그 앞에 기호 삭제 */
+  list-style: none;
+  /* li 태그 앞에 기호 삭제 */
   height: 100%;
   width: 1100px;
 }
 
 nav a {
-  text-decoration: none; /* 밑줄 제거 */
+  text-decoration: none;
+  /* 밑줄 제거 */
   color: black;
   font-size: 18px;
   font-weight: bold;
-  padding: 11px 0;      /* 위아래 10px, 좌우 0px 여백 */
+  padding: 11px 0;
+  /* 위아래 10px, 좌우 0px 여백 */
   border-radius: 5px;
   width: 100px;
   display: block;
-  text-align: center;   /* 글자(inline) 가운데 정렬 */
-  transition-duration: 0.3s; /* css가 0.3초 동안의 시간을 가지고 변함 */
+  text-align: center;
+  /* 글자(inline) 가운데 정렬 */
+  transition-duration: 0.3s;
+  /* css가 0.3초 동안의 시간을 가지고 변함 */
   height: 100%;
 }
 
-nav a:hover{
+nav a:hover {
   color: white;
   background-color: var(--main-color);
 }
@@ -121,15 +128,25 @@ main {
 
 .content {
   display: flex;
+  min-height: 100vh;
   gap: 32px;
 }
 
-.content-1, .content-2 {
+.content-1,
+.content-2 {
   flex: 1;
   background: #fff;
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.content-1 {
+  flex-basis: 70%;
+}
+
+.content-2 {
+  flex-basis: 30%;
 }
 
 .content-1 h3,
@@ -151,31 +168,15 @@ main {
   text-align: center;
 }
 
-.content-1 input[type="text"] {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-right: 10px;
-}
-
-.content-1 button {
-  padding: 8px 14px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.content-1 button:hover {
-  background-color: #218838;
-}
-
 /* 푸터 */
 footer {
   text-align: center;
-  padding: 24px 0;
-  color: #aaa;
   font-size: 14px;
-  background-color: #f4f6f8;
+  padding: 24px 0;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
 }

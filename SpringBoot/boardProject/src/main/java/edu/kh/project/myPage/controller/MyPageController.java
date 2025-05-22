@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.kh.project.common.util.JwtUtil;
 import edu.kh.project.member.model.dto.Member;
 import edu.kh.project.member.model.service.MemberService;
+import edu.kh.project.myPage.model.service.MyPageService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +29,10 @@ import lombok.extern.slf4j.Slf4j;
 public class MyPageController {
 
 	@Autowired
-	private MemberService service;
-
+	private MemberService memberService;
+	
 	@Autowired
-	private JwtUtil jwtUtil;
+	private MyPageService myPageService;
 
 	/**
 	 * 사용자 정보 조회(로그인 후, 페이지 새로고침&사용자정보 필요 시 사용)
@@ -46,7 +49,9 @@ public class MyPageController {
 		Member member = Member.builder().memberEmail(memberEmail).memberNo(memberNo).build();
 
 		// 토큰에서 꺼낸 이메일과 사용자번호로 DB에서 정보 조회하기
-		member = service.findByEmailAndId(member);
+		member = memberService.findByEmailAndId(member);
+		
+		log.debug("memberInfo: {}", member);
 
 		// db에 정보가 없다면
 		if (member == null) {
@@ -55,6 +60,25 @@ public class MyPageController {
 
 		return ResponseEntity.ok(Map.of("member", member));
 
+	}
+	
+	// @RequestBody는 JSON 형식을 처리하는 데 사용됨
+	// multipart/form-data 형식은 @RequestParam 또는 @ModelAttribute로 처리(JSON이 아니라 파일 업로드용 바이너리 데이터이기 때문에)
+	@PostMapping("update/profile")
+	public ResponseEntity<?> updateProfileImage(@RequestParam(value = "profileImg", required = false) MultipartFile profileImg, 
+												HttpServletRequest request) throws Exception {
+		
+		int memberNo = (int) request.getAttribute("memberNo");
+	
+		// 서비스 호출
+		int result = myPageService.profile(profileImg, memberNo);
+		
+		if(result > 0) {
+			return ResponseEntity.ok(200);
+		}
+				
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("프로필 이미지 업데이트 실패");
+		
 	}
 
 }

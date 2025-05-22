@@ -7,7 +7,7 @@ const Footer = ({ message }) => {
 
   return (
     <footer>
-      <p>Copyright &copy; KH Information Educational Institute A-Class</p>
+      <p>Copyright &copy; KH Information Educational Institute E-Class</p>
 
       <article>
         <a href="#">프로젝트 소개</a>

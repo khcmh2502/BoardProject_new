@@ -16,10 +16,11 @@ const Login = () => {
     const savedId = getCookie('saveId');
     if (savedId) {
       setMemberEmail(savedId);
-      setMemberPw(true);
+      setSaveId(true);
     }
   }, []);
 
+  // 로그인 요청 함수
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -35,7 +36,7 @@ const Login = () => {
 
       // 아이디 저장 체크된 경우 쿠키에 저장
       if (saveId) {
-        setCookie('saveId', email, 30); // 30일간 저장
+        setCookie('saveId', memberEmail, 30); // 30일간 저장
       } else {
         deleteCookie('saveId');
       }

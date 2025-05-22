@@ -20,9 +20,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// Bean으로 등록된 jwtInterceptor를 얻어와서 매개변수로 전달
-		registry
-		.addInterceptor(jwtInterceptor())
-		.addPathPatterns("/myPage/**") // 인터셉터 적용 경로
-		.excludePathPatterns("/member/login", "/signup", "/"); // 제외 경로
+		registry.addInterceptor(jwtInterceptor()).addPathPatterns("/myPage/**") // 인터셉터 적용 경로
+				.excludePathPatterns("/member/login", 
+						"/signup", 
+						"/myPage/profile/**", 
+						"/css/**", "/js/**",
+						"/images/**", 
+						"/"); // 제외 경로
 	}
 }
